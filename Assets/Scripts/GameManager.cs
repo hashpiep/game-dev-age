@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
     public void CreateGame(string name)
     {
-        games.Add(new Game(name, playerEntityId, GameState.InDevelopment));
+        games.Add(new Game($"Guid.NewGuid().ToString()_game", name, new(0,0,0,0,0), playerEntityId, GameState.InDevelopment));
     }
     public List<Game> GetGamesMadeByAuthorID(string authorId)
     {

@@ -1,17 +1,14 @@
-public class Game
+public class Game : TechEntity
 {
-    private string name;
     private string authorId;
     private float progress = 0;
     private float maxProgress = 100;
     private GameState state;
-    public string Name { get { return name; } }
     public GameState State { get { return state; } }
     public string AuthorID { get { return authorId; } }
     public bool IsFinished { get { return progress >= maxProgress; } }
-    public Game(string name, string authorId, GameState state)
-    { 
-        this.name = name; 
+    public Game(string id, string name, WorldTimestamp releaseDate, string authorId, GameState state) : base(id, name, releaseDate)
+    {
         this.authorId = authorId;
         this.state = state;
     }
