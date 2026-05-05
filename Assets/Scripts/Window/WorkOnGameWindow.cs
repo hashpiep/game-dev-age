@@ -15,8 +15,10 @@ public class WorkOnGameWindow : MonoBehaviour
     private Button workOnSelectedGameBtn;
     [SerializeField]
     private Transform gameSelectionContainer;
-    [SerializeField]
-    private GameManager gameManager;
+    private void Start()
+    {
+        Close();
+    }
     public void Close()
     {
         HideGameSelection();
@@ -32,7 +34,7 @@ public class WorkOnGameWindow : MonoBehaviour
     }
     private void GenerateGameSelectionList()
     {
-        List<Game> games = gameManager.GetGamesMadeByAuthorID("player");
+        List<Game> games = GameManager.Instance.GetGamesMadeByAuthorID(HumanManager.Instance.PlayerID);
 
         Extensions.KillAllChildrenOfParent(gameSelectionContainer);
 

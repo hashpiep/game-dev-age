@@ -1,6 +1,12 @@
-public class GamingPlatform : TechEntity
+public class GamingPlatform
 {
-    public GamingPlatform(string id, string name, WorldTimestamp releaseDate) : base(id, name, releaseDate)
+    private string id;
+    private string name;
+    public string ID { get { return id; } }
+    public string Name { get { return name; } }
+    public GamingPlatform(string id, string name)
     {
+        this.id = id;
+        this.name = name;
     }
 }
