@@ -37,7 +37,7 @@ public class FindJobWindow : MonoBehaviour
         foreach (Job job in jobs)
         {
             var obj = Instantiate(jobPrefab, container);
-            string name = $"{job.Name} - {job.Pay}$";
+            string name = $"{job.Name} - {job.PayPerHour}$ per hour";
             obj.Init(name, () =>
             {
                 HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).SetJob(job.ID);

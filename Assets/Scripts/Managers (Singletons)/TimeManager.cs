@@ -7,7 +7,30 @@ public class TimeManager : MonoBehaviour
     private int day = 1;
     private int hour = 7;
     private int minute = 0;
-    public string Date { get { return $"{month}.{day}. {year} {hour}:{((minute < 10) ? 0 : "")}{minute}"; } }
+    private int dayOfTheWeek = 1;
+    public string Date { get { return $"{month}.{day}. {year} {hour}:{((minute < 10) ? 0 : "")}{minute} {DayOfTheWeek}"; } }
+    public string DayOfTheWeek { get
+        {
+            switch (dayOfTheWeek)
+            {
+                case 1:
+                    return "Monday";
+                case 2:
+                    return "Tuesday";
+                case 3:
+                    return "Wednesday";
+                case 4:
+                    return "Thursday";
+                case 5:
+                    return "Friday";
+                case 6:
+                    return "Saturday";
+                case 7:
+                    return "Sunday";
+                default:
+                    return "Monday";
+            }
+        } }
     public event Action OnTimeChanged;
     private static TimeManager instance;
     public static TimeManager Instance { get { return instance; } }
@@ -54,6 +77,12 @@ public class TimeManager : MonoBehaviour
     private void AddDays(int daysAdded)
     {
         day += daysAdded;
+        dayOfTheWeek += daysAdded;
+
+        while (dayOfTheWeek > 7)
+        {
+            dayOfTheWeek -= 7;
+        }
 
         while (day > 30)
         {

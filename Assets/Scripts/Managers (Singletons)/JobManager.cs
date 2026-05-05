@@ -11,9 +11,9 @@ public class JobManager : MonoBehaviour
     {
         instance = this;
     }
-    public void CreateJob(string name, float pay)
+    public void CreateJob(string name, float pay, Shift shift)
     {
-        Job job = new Job($"{Guid.NewGuid().ToString()}_job", name, pay);
+        Job job = new Job($"{Guid.NewGuid().ToString()}_job", name, pay, shift);
 
         jobs.Add(job);
     }

@@ -47,9 +47,9 @@ public class DebugWindow : MonoBehaviour
         PLMan.CreateProgLanguage("EzScript 1.0", ezscript);
 
         JobManager JMan = JobManager.Instance;
-        JMan.CreateJob("Janitor", 10);
-        JMan.CreateJob("Cashier", 14);
-        JMan.CreateJob("Car Washer", 14);
+        JMan.CreateJob("Janitor", 10, new Shift(new List<int> {1, 2, 3, 4, 5}, 12, 30, 15, 30));
+        JMan.CreateJob("Cashier", 14, new Shift(new List<int> { 1, 3, 5, 6 }, 7, 0, 15, 0));
+        JMan.CreateJob("Car Washer", 14, new Shift(new List<int> { 1, 2, 3, 4, 5, 6, 7 }, 9, 0, 17, 0));
 
         moneyLabelScript.Init();
         timeLabelScript.Init();

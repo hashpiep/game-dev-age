@@ -23,7 +23,7 @@ public class WorkAtJobWindow : MonoBehaviour
     public void Work()
     {
         HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).AddMoney(
-        JobManager.Instance.GetJobFromID(HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).JobID).Pay
+        JobManager.Instance.GetJobFromID(HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).JobID).PayPerHour
         );
         TimeManager.Instance.PassTimeInHours(1);
     }
