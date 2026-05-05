@@ -25,6 +25,7 @@ public class WorkAtJobWindow : MonoBehaviour
         HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).AddMoney(
         JobManager.Instance.GetJobFromID(HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).JobID).Pay
         );
+        TimeManager.Instance.PassTimeInHours(1);
     }
     public void QuitJob()
     {

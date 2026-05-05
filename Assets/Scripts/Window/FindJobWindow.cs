@@ -17,6 +17,7 @@ public class FindJobWindow : MonoBehaviour
     private void Start()
     {
         Close();
+        jobButton.onClick.AddListener(() => Show());
     }
     public void Close()
     {

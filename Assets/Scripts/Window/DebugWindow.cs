@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class DebugWindow : MonoBehaviour
 {
+    [SerializeField]
+    private MoneyLabel moneyLabelScript;
+    [SerializeField]
+    private TimeLabel timeLabelScript;
     public void InitializeEverything()
     {
         HumanManager humMan = HumanManager.Instance;
@@ -46,5 +50,8 @@ public class DebugWindow : MonoBehaviour
         JMan.CreateJob("Janitor", 10);
         JMan.CreateJob("Cashier", 14);
         JMan.CreateJob("Car Washer", 14);
+
+        moneyLabelScript.Init();
+        timeLabelScript.Init();
     }
 }

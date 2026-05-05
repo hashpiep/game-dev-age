@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 public class Human
 {
@@ -9,6 +10,7 @@ public class Human
     public string JobID { get { return jobID; } }
     public float Money { get { return money; } }
     public Dictionary<string, Skill> Skills { get { return skills; } }
+    public event Action<float> OnMoneyChanged;
     public Human(string id, Dictionary<string, Skill> skills)
     {
         this.id = id;
@@ -30,10 +32,12 @@ public class Human
     public void RemoveMoney(float howMuch)
     {
         money -= howMuch;
+        OnMoneyChanged?.Invoke(money);
     }
     public void AddMoney(float howMuch)
     {
         money += howMuch;
+        OnMoneyChanged?.Invoke(money);
     }
     public Skill GetSkill(string skillKey)
     {

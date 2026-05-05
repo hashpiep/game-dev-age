@@ -40,6 +40,9 @@ public class WorkOnGameWindow : MonoBehaviour
 
         foreach (Game game in games)
         {
+            if (game.IsFinished)
+                continue;
+
             GameSelectionPrefab prefab = Instantiate(gameSelectionPrefab, gameSelectionContainer);
             prefab.ChangeGameNameLabelTo(game.Name);
             prefab.AddWorkOnButtonPress(() =>
@@ -55,7 +58,11 @@ public class WorkOnGameWindow : MonoBehaviour
         workOnSelectedGameBtn.onClick.RemoveAllListeners();
         workOnSelectedGameBtn.onClick.AddListener(() =>
         {
-            game.AddProgress(4);
+            game.AddProgress(5);
+            TimeManager.Instance.PassTimeInHoursAndMinutes(30, 2);
+
+            if (game.IsFinished)
+                Show();
         });
     }
     private void ShowGameSelection()

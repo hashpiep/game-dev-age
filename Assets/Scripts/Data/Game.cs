@@ -20,6 +20,8 @@ public class Game
         this.id = id;
         this.name = name;
         this.authorID = authorID;
+        this.programmingLanguageID = programmingLanguageID;
+        this.gamingPlatformID = gamingPlatformID;
         this.state = state;
     }
     public void AddProgress(float howMuch)
@@ -28,6 +30,10 @@ public class Game
 
         if (progress > maxProgress)
             progress = maxProgress;
+    }
+    public void Release()
+    {
+        state = GameState.Released;
     }
 }
 public enum GameState 
