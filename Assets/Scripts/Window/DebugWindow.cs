@@ -41,5 +41,10 @@ public class DebugWindow : MonoBehaviour
         PLMan.CreateProgLanguage("Eyes", eyes);
         PLMan.CreateProgLanguage("CLASSIC 1.0", classic);
         PLMan.CreateProgLanguage("EzScript 1.0", ezscript);
+
+        JobManager JMan = JobManager.Instance;
+        JMan.CreateJob("Janitor", 10);
+        JMan.CreateJob("Cashier", 14);
+        JMan.CreateJob("Car Washer", 14);
     }
 }
