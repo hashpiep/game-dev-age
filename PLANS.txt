@@ -1,0 +1,10 @@
+- Random name generator for programming languages
+- Random name generator for computers
+- Random name generator for games
+- Money from released games
+- Skill learning and application
+- Use money for marketing
+- Player energy + rest/sleep
+- Random event generator for new prog. languages, computers and games
+- Saving game progress
+- Creating and loading save files

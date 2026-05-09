@@ -9,6 +9,9 @@ public class TimeManager : MonoBehaviour
     private int minute = 0;
     private int dayOfTheWeek = 1;
     public string Date { get { return $"{month}.{day}. {year} {hour}:{((minute < 10) ? 0 : "")}{minute} {DayOfTheWeek}"; } }
+    public int Hour { get { return hour; } }
+    public int Minute { get { return minute; } }
+    public int DayOfTheWeekInt { get { return dayOfTheWeek; } }
     public string DayOfTheWeek { get
         {
             switch (dayOfTheWeek)

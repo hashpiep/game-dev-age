@@ -10,11 +10,10 @@ public class DebugWindow : MonoBehaviour
     {
         HumanManager humMan = HumanManager.Instance;
 
-        humMan.CreateHuman("Wilson", true);
-        humMan.CreateHuman("Bill");
-        humMan.CreateHuman("David");
-        humMan.CreateHuman("Jane");
-        humMan.CreateHuman("Carter");
+        humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male, true);
+        humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male);
+        humMan.CreateHuman(RNDNameManager.GetRandomFemaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Female);
+        humMan.CreateHuman(RNDNameManager.GetRandomFemaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Female);
 
         GamingPlatformManager GPMan = GamingPlatformManager.Instance;
         ProgrammingLanguageManager PLMan = ProgrammingLanguageManager.Instance;

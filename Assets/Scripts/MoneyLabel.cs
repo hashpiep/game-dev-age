@@ -11,6 +11,6 @@ public class MoneyLabel : MonoBehaviour
     }
     public void UpdateUI(float money)
     {
-        label.text = $"{money}$";
+        label.text = $"{money}$ - {HumanManager.Instance.GetHumanFromID(HumanManager.Instance.PlayerID).Info.FirstName}";
     }
 }

@@ -3,17 +3,20 @@ using System.Collections.Generic;
 public class Human
 {
     private string id;
+    private HumanInfo info;
     private Dictionary<string, Skill> skills;
     private string jobID = "";
     private float money = 0;
     public string ID { get { return id; } }
+    public HumanInfo Info { get { return info; } }
     public string JobID { get { return jobID; } }
     public float Money { get { return money; } }
     public Dictionary<string, Skill> Skills { get { return skills; } }
     public event Action<float> OnMoneyChanged;
-    public Human(string id, Dictionary<string, Skill> skills)
+    public Human(string id, HumanInfo info, Dictionary<string, Skill> skills)
     {
         this.id = id;
+        this.info = info;
         this.skills = skills;
     }
     public void IncreaseSkill(string skillKey, float howMuch)
