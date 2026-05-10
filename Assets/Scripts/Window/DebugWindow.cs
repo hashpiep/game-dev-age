@@ -12,6 +12,8 @@ public class DebugWindow : MonoBehaviour
 
         humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male, true);
         humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male);
+        humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male);
+        humMan.CreateHuman(RNDNameManager.GetRandomMaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Male);
         humMan.CreateHuman(RNDNameManager.GetRandomFemaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Female);
         humMan.CreateHuman(RNDNameManager.GetRandomFemaleFirstName(), RNDNameManager.GetRandomLastName(), Sex.Female);
 
@@ -21,29 +23,39 @@ public class DebugWindow : MonoBehaviour
         GPMan.CreateGamingPlatform("BIDA");
         GPMan.CreateGamingPlatform("Semipole");
         GPMan.CreateGamingPlatform("Omnipole");
-        GPMan.CreateGamingPlatform("Kakari");
+        GPMan.CreateGamingPlatform("Eyes");
 
         List<GamingPlatform> platforms = GPMan.GetGamingPlatforms();
 
-        List<string> billy = new List<string>();
-        billy.Add(platforms[0].ID);
-        billy.Add(platforms[1].ID);
+        List<string> firstLang = new List<string>();
+        firstLang.Add(platforms[0].ID);
+        firstLang.Add(platforms[1].ID);
 
-        List<string> eyes = new List<string>();
-        eyes.Add(platforms[3].ID);
+        List<string> secondLang = new List<string>();
+        secondLang.Add(platforms[3].ID);
 
-        List<string> classic = new List<string>();
-        classic.Add(platforms[0].ID);
-        classic.Add(platforms[1].ID);
-        classic.Add(platforms[2].ID);
+        List<string> thirdLang = new List<string>();
+        thirdLang.Add(platforms[0].ID);
+        thirdLang.Add(platforms[1].ID);
+        thirdLang.Add(platforms[2].ID);
 
-        List<string> ezscript = new List<string>();
-        ezscript.Add(platforms[2].ID);
+        List<string> fourthLang = new List<string>();
+        fourthLang.Add(platforms[2].ID);
 
-        PLMan.CreateProgLanguage("Billy", "", billy, true);
-        PLMan.CreateProgLanguage("Eyes", "", eyes, true);
-        PLMan.CreateProgLanguage("CLASSIC 1.0", "", classic, true);
-        PLMan.CreateProgLanguage("EzScript 1.0", "", ezscript, true);
+        List<Human> humans = humMan.GetHumans();
+
+        string authorIdOne = humans[1].ID;
+        string authorIdTwo = humans[2].ID;
+        string authorIdThree = humans[4].ID;
+
+        PLMan.CreateProgLanguage(RNDNameManager.GenerateProgrammingLanguageName(HumanManager.Instance.GetHumanFromID(authorIdOne).Info), 
+            authorIdOne, firstLang, true);
+        PLMan.CreateProgLanguage(RNDNameManager.GenerateProgrammingLanguageName(HumanManager.Instance.GetHumanFromID(authorIdThree).Info), 
+            authorIdThree, secondLang, true);
+        PLMan.CreateProgLanguage(RNDNameManager.GenerateProgrammingLanguageName(HumanManager.Instance.GetHumanFromID(authorIdTwo).Info), 
+            authorIdTwo, thirdLang, true);
+        PLMan.CreateProgLanguage(RNDNameManager.GenerateProgrammingLanguageName(HumanManager.Instance.GetHumanFromID(authorIdTwo).Info), 
+            authorIdTwo, fourthLang, true);
 
         JobManager JMan = JobManager.Instance;
         JMan.CreateJob("Janitor", 10, new Shift(new List<int> {1, 2, 3, 4, 5}, 12, 30, 15, 30));

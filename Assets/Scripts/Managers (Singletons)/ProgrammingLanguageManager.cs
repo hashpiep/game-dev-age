@@ -26,4 +26,8 @@ public class ProgrammingLanguageManager : MonoBehaviour
     {
         return programmingLanguages.Where(progLang => progLang.ID == id).FirstOrDefault();
     }
+    public List<ProgrammingLanguage> GetProgLanguagesOfAuthorID(string authorID)
+    {
+        return programmingLanguages.Where(progLang => progLang.AuthorID == authorID).ToList();
+    }
 }

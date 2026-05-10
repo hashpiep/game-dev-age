@@ -1,4 +1,3 @@
-- Random name generator for programming languages
 - Random name generator for computers
 - Random name generator for games
 - Money from released games
