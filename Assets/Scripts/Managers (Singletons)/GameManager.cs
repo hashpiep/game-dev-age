@@ -13,10 +13,14 @@ public class GameManager : MonoBehaviour
     }
     public void CreateGame(string name, string programmingLanguageID, string authorID, string gamingPlatformID)
     {
-        games.Add(new Game($"{Guid.NewGuid().ToString()}_game", name, authorID, programmingLanguageID, gamingPlatformID, GameState.InDevelopment));
+        games.Add(new Game($"{Guid.NewGuid().ToString()}_game", name, authorID, programmingLanguageID, gamingPlatformID, ProductState.InDevelopment));
     }
     public List<Game> GetGamesMadeByAuthorID(string authorId)
     {
         return games.Where(game => game.AuthorID == authorId).ToList();
+    }
+    public List<Game> GetGamesNotMadeByAuthorID(string authorId)
+    {
+        return games.Where(game => game.AuthorID != authorId).ToList();
     }
 }

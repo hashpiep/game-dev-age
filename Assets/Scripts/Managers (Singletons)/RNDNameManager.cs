@@ -41,6 +41,10 @@ public static class RNDNameManager
 
         return names[rnd];
     }
+    public static string GenerateProgrammingLanguageName(HumanInfo authorInfo)
+    {
+        return "";
+    }
     public static string GetRandomLastName()
     {
         string json = File.ReadAllText(lastNamesPath);

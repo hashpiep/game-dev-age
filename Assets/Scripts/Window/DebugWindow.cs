@@ -40,10 +40,10 @@ public class DebugWindow : MonoBehaviour
         List<string> ezscript = new List<string>();
         ezscript.Add(platforms[2].ID);
 
-        PLMan.CreateProgLanguage("Billy", billy);
-        PLMan.CreateProgLanguage("Eyes", eyes);
-        PLMan.CreateProgLanguage("CLASSIC 1.0", classic);
-        PLMan.CreateProgLanguage("EzScript 1.0", ezscript);
+        PLMan.CreateProgLanguage("Billy", "", billy, true);
+        PLMan.CreateProgLanguage("Eyes", "", eyes, true);
+        PLMan.CreateProgLanguage("CLASSIC 1.0", "", classic, true);
+        PLMan.CreateProgLanguage("EzScript 1.0", "", ezscript, true);
 
         JobManager JMan = JobManager.Instance;
         JMan.CreateJob("Janitor", 10, new Shift(new List<int> {1, 2, 3, 4, 5}, 12, 30, 15, 30));

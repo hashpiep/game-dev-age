@@ -17,6 +17,9 @@ public class CreateGameWindow : MonoBehaviour
     private CreateGameWindowProgLangBtnPrefab progLangBtnPrefab;
     [SerializeField]
     private CreateGameWindowPCOrOSDisplayPrefab pCOrOSDisplayPrefab;
+    [Header("Other Window Scripts")]
+    [SerializeField]
+    private GamesWindow gamesWindow;
     private string chosenProgLangID;
     private string chosenGamePlatID;
     private void Start()
@@ -31,7 +34,7 @@ public class CreateGameWindow : MonoBehaviour
 
         foreach (ProgrammingLanguage language in progLangs)
         {
-            if (!language.SupportedGamingPlatformsIDs.Contains(platform.ID)) 
+            if (!language.Properties.SupportedGamingPlatformsIDs.Contains(platform.ID)) 
                 continue;
 
             var obj = Instantiate(progLangBtnPrefab, programmingLanguagesContainer);
@@ -75,6 +78,7 @@ public class CreateGameWindow : MonoBehaviour
         GameManager.Instance.CreateGame(nameInputField.text, chosenProgLangID, HumanManager.Instance.PlayerID, chosenGamePlatID);
         nameInputField.text = "";
         Close();
+        gamesWindow.Show();
     }
     public void Close()
     {
@@ -84,5 +88,6 @@ public class CreateGameWindow : MonoBehaviour
     {
         createGameWindow.SetActive(true);
         GenerateItems();
+        nameInputField.text = "";
     }
 }

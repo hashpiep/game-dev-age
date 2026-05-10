@@ -11,9 +11,10 @@ public class ProgrammingLanguageManager : MonoBehaviour
     {
         instance = this;
     }
-    public void CreateProgLanguage(string name, List<string> supportedPlatformsIDs)
+    public void CreateProgLanguage(string name, string authorID, List<string> supportedPlatformsIDs, bool isFinishedAndReleased = false)
     {
-        ProgrammingLanguage progLanguage = new ProgrammingLanguage($"{Guid.NewGuid().ToString()}_proglang", name, supportedPlatformsIDs);
+        ProgrammingLanguageProperties properties = new ProgrammingLanguageProperties(0, 0, 0, 0, 0, 0, supportedPlatformsIDs);
+        ProgrammingLanguage progLanguage = new ProgrammingLanguage($"{Guid.NewGuid().ToString()}_proglang", authorID, name, properties, isFinishedAndReleased);
 
         programmingLanguages.Add(progLanguage);
     }

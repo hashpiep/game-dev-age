@@ -7,15 +7,15 @@ public class Game
     private string gamingPlatformID;
     private float progress = 0;
     private float maxProgress = 100;
-    private GameState state;
-    public GameState State { get { return state; } }
+    private ProductState state;
+    public ProductState State { get { return state; } }
     public string ID { get { return id; } }
     public string Name { get { return name; } }
     public string AuthorID { get { return authorID; } }
     public string ProgrammingLanguageID { get { return programmingLanguageID; } }
     public string GamingPlatformID { get { return gamingPlatformID; } }
     public bool IsFinished { get { return progress >= maxProgress; } }
-    public Game(string id, string name, string authorID, string programmingLanguageID, string gamingPlatformID, GameState state)
+    public Game(string id, string name, string authorID, string programmingLanguageID, string gamingPlatformID, ProductState state)
     {
         this.id = id;
         this.name = name;
@@ -33,10 +33,10 @@ public class Game
     }
     public void Release()
     {
-        state = GameState.Released;
+        state = ProductState.Released;
     }
 }
-public enum GameState 
+public enum ProductState 
 { 
     InDevelopment,
     Cancelled,
