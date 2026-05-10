@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Skill : MonoBehaviour
+public class Skill
 {
     private string displayName;
     private string categoryName;

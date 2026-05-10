@@ -52,7 +52,7 @@ public static class RNDNameManager
         {
             string finalName = GetRandomChemicalElement();
 
-            if (finalName.Length <= 8)
+            if (finalName.Length < 8)
             {
                 int rnd2 = Random.Range(0, 2);
 

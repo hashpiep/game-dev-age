@@ -15,7 +15,7 @@ public class HumanManager : MonoBehaviour
     }
     public void CreateHuman(string firstName, string lastName, Sex sex, bool isPlayer = false)
     {
-        Human human = new Human($"{Guid.NewGuid().ToString()}_human", new HumanInfo(firstName, lastName, sex), new());
+        Human human = new Human($"{Guid.NewGuid().ToString()}_human", new HumanInfo(firstName, lastName, sex), new(), new());
 
         if (isPlayer)
             playerID = human.ID;

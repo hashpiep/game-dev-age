@@ -23,4 +23,8 @@ public class GameManager : MonoBehaviour
     {
         return games.Where(game => game.AuthorID != authorId).ToList();
     }
+    public List<Game> GetGames()
+    {
+        return games;
+    }
 }

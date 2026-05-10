@@ -35,6 +35,7 @@ public class TimeManager : MonoBehaviour
             }
         } }
     public event Action OnTimeChanged;
+    public event Action OnDayPassed;
     private static TimeManager instance;
     public static TimeManager Instance { get { return instance; } }
     private void Start()
@@ -81,6 +82,7 @@ public class TimeManager : MonoBehaviour
     {
         day += daysAdded;
         dayOfTheWeek += daysAdded;
+        OnDayPassed?.Invoke();
 
         while (dayOfTheWeek > 7)
         {
